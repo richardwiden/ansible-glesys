@@ -1,0 +1,14 @@
+---
+- name: Generate Password
+  hosts: localhost
+
+  tasks:
+    - name: Generate random pass
+      random:
+        length: 125
+        type: full
+      register: password
+
+    - name: Print password
+      debug:
+        var: password.password
